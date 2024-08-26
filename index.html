@@ -7,17 +7,37 @@
         <link href="./assets/svg/eg-small.svg" rel="shortcut icon">
         <!-- css imports -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="./css/reset.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@latest/dist/css/jsvectormap.css" />
+        <!-- custom css -->
         <link href="./css/common.css" rel="stylesheet">
+        <link href="./css/chart.css" rel="stylesheet">
         <!-- js imports -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+        <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jsvectormap@latest/dist/js/jsvectormap.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jsvectormap@latest/dist/maps/world.js"></script>
+        <!-- custom js -->
+         <script src="./js/performanceChart.js" defer></script>
+         <script src="./js/productThisYear.js" defer></script>
+         <script src="./js/commissionThisYear.js" defer></script>
+         <script src="./js/monthlyVisits.js" defer></script>
+         <script src="./js/emailSenderChart.js" defer></script>
+         <script src="./js/worldmap.js" defer></script>
     </head>
     <body class="nav-fixed">
         <nav class="navbar-main topnav">
             <button class="nav-toogle-btn v-line-right" id="sidebarToggle">
                 <img class="menu-icon" src="./assets/png/menu_icon.png" alt="menu icon">
             </button>
-            <a href="index.html" class="nav-brand">
+            <a href="javascript:void(0)" class="nav-brand">
                 <img class="brand-logo" src="./assets/png/eg-innovations-logo.png" alt="eG Innovations">
             </a>
             <ul class="navbar-items">
@@ -45,13 +65,13 @@
                     </div>
                 </li>
                 <li class="nav-item v-line">
-                    <div class="badge">
+                    <div class="badge-group">
                         <img class="badge-icon" src="./assets/png/mail-icon.png" alt="mail icon"/>
                         <span class="badge-circle badge-danger"></span>
                     </div>
                 </li>
                 <li class="nav-item v-line">
-                    <div class="badge">
+                    <div class="badge-group">
                         <img class="badge-icon" src="./assets/png/notification-icon.png" alt="notification icon"/>
                         <span class="badge-circle badge-success"></span>
                     </div>
@@ -64,7 +84,7 @@
                         </button>
                         <ul class="dropdown-menu">
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="javascript:void(0)">
                                 <div class="dropdown-item-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                     <span>Profile</span>
@@ -72,7 +92,7 @@
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="javascript:void(0)">
                                 <div class="dropdown-item-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                                     <span>Settings</span>
@@ -80,7 +100,7 @@
                             </a>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="javascript:void(0)">
                                 <div class="dropdown-item-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                     <span>Log-out</span>
@@ -150,7 +170,307 @@
                 </nav>
             </aside>
             <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-xl mt-4 px-15">
+                        <section>
+                            <div class="overview">
+                                <div class="overview-col-left">
+                                    <div class="overview-card">
+                                        <div class="overview-card__header">
+                                            <p><strong>Overview</strong></p>
+                                            <button class="btn btn-primary d-lh">Find New Flat</button>
+                                        </div>
+                                        <div class="overview-card__content">
+                                            <ul class="overview-items">
+                                                <li class="overview-items__item">
+                                                    <div class="overview-items__item__image">
+                                                        <img src="./assets/png/market-size.png" alt="marketting img"/>
+                                                    </div>
+                                                    <div class="overview-items__item__bio">
+                                                        <h6>Market Size</h6>
+                                                        <h2>$124,500</h2>
+                                                    </div>
+                                                    <div class="overview-items__item__market-status">
+                                                        <img src="./assets/png/top-arrow-icon.png" class="" alt="top arrow"/>
+                                                        <span class="market-up">05.24%</span>
+                                                    </div>
+                                                </li>
+                                                <li class="overview-items__item">
+                                                    <div class="overview-items__item__image">
+                                                        <img src="./assets/png/engagementrate.png" alt="marketting img"/>
+                                                    </div>
+                                                    <div class="overview-items__item__bio">
+                                                        <h6>Engagement Rate</h6>
+                                                        <h2>21.64%</h2>
+                                                    </div>
+                                                    <div class="overview-items__item__market-status">
+                                                        <img src="./assets/png/down-arrow-icon.png" class="" alt="top arrow"/>
+                                                        <span class="market-down">02.86%</span>
+                                                    </div>
+                                                </li>
+                                                <li class="overview-items__item">
+                                                    <div class="overview-items__item__image">
+                                                        <img src="./assets/png/total-sale.png" alt="marketting img"/>
+                                                    </div>
+                                                    <div class="overview-items__item__bio">
+                                                        <h6>Total Sales</h6>
+                                                        <h2>$27,584</h2>
+                                                    </div>
+                                                    <div class="overview-items__item__market-status">
+                                                        <img src="./assets/png/top-arrow-icon.png" class="" alt="top arrow"/>
+                                                        <span class="market-up">00.87%</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="overview-card__performance-chart mt-4">
+                                                <div class="overview-card__performance-chart__header">
+                                                    <h6><strong>Performance of Propery vs Market Average</strong></h6>
+                                                    <div class="sort-filter">
+                                                        <label for="sort1">Sort By:</label>
+                                                        <select class="sort-filter__option" id="sort1">
+                                                            <option value="yearly">Yearly</option>
+                                                            <option value="monthly">Monthly</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="overview-card__performance-chart__body">
+                                                    <figure class="highcharts-figure1">
+                                                        <div id="performanceChart"></div>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overview-col-right">
+                                    <div class="overview-card-sm">
+                                        <div class="overview-card-sm__content">
+                                            <div class="overview-card-sm__header">
+                                                <div class="overview-card-sm__header__content">
+                                                    <p>Production this Year</p>
+                                                    <h3>$25,32,240</h3>
+                                                </div>
+                                                <div class="overview-items__item__market-status">
+                                                    <img src="./assets/png/top-arrow-icon.png" class="" alt="top arrow">
+                                                    <span class="market-up">05.24%</span>
+                                                </div>
+                                            </div>
+                                            <div class="overview-card-sm__chart">
+                                                <figure class="highcharts-figure">
+                                                    <div id="productionThisYear"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overview-card-sm">
+                                        <div class="overview-card-sm__content">
+                                            <div class="overview-card-sm__header">
+                                                <div class="overview-card-sm__header__content">
+                                                    <p>Commission this Year</p>
+                                                    <h3>$4,82,045</h3>
+                                                </div>
+                                                <div class="overview-items__item__market-status">
+                                                    <img src="./assets/png/top-arrow-icon.png" class="" alt="top arrow">
+                                                    <span class="market-up">12.58%</span>
+                                                </div>
+                                            </div>
+                                            <div class="overview-card-sm__chart">
+                                                <figure class="highcharts-figure">
+                                                    <div id="commissionThisYear"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overview-card-sm">
+                                        <div class="overview-card-sm__content">
+                                            <div class="overview-card-sm__header">
+                                                <div class="overview-card-sm__header__content">
+                                                    <p>Monthly Visits</p>
+                                                    <h3>74,84,840</h3>
+                                                </div>
+                                                <div class="overview-items__group">
+                                                    <div class="overview-items__item__market-status">
+                                                        <img src="./assets/png/top-arrow-icon.png" class="" alt="top arrow">
+                                                        <span class="market-up">38.27%</span>
+                                                    </div>
+                                                    <div class="overview-items__item__market-status">
+                                                        <img src="./assets/png/down-arrow-icon.png" class="" alt="top arrow">
+                                                        <span class="market-down">09.84%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="overview-card-sm__chart">
+                                                <figure class="highcharts-figure">
+                                                    <div id="monthlyVisits"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overview-col-bottom">
+                                    <div class="overview-md-card">
+                                        <div class="overview-md-card-header">
+                                            <h6>Activities</h6>
+                                            <a href="javascript:void(0)" class="btn-link">View All</a>
+                                        </div>
+                                        <ul class="activities-items">
+                                            <li class="activities-item">
+                                                <div class="activities-circle-dot"></div>
+                                                <div class="activities-item-desc">
+                                                    <p>Caspian Bellevedere made an offer for $1,40,000</p>
+                                                    <span>12 Min ago, Bellevedere, New York</span>
+                                                </div>
+                                            </li>
+                                            <li class="activities-item">
+                                                <div class="activities-circle-dot"></div>
+                                                <div class="activities-item-desc">
+                                                    <p>Valentino Morose asking for the rented</p>
+                                                    <span>15 Min ago, Bellevedere, UAE</span>
+                                                </div>
+                                            </li>
+                                            <li class="activities-item">
+                                                <div class="activities-circle-dot"></div>
+                                                <div class="activities-item-desc">
+                                                    <p>VMost Disclosure.PDF</p>
+                                                    <span>18 Min ago, Owosso, USA</span>
+                                                </div>
+                                            </li>
+                                            <li class="activities-item">
+                                                <div class="activities-circle-dot"></div>
+                                                <div class="activities-item-desc">
+                                                    <p>Valentino Morose asking for the rented</p>
+                                                    <span>15 Min ago, Bellevedere, UAE</span>
+                                                </div>
+                                            </li>
+                                            <li class="activities-item">
+                                                <div class="activities-circle-dot"></div>
+                                                <div class="activities-item-desc">
+                                                    <p>Piff Jenkins 02 New Party Availables</p>
+                                                    <span>21 Min ago, Bellevedere, New York</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="overview-md-card">
+                                        <div class="overview-md-card-header">
+                                            <h6>Top Five Email Senders</h6>
+                                        </div>
+                                        <div class="email-senders">
+                                            <figure class="highcharts-figure">
+                                                <div id="emailSender"></div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="overview-md-card">
+                                        <div class="overview-md-card-header">
+                                            <h6>Global Sales Top Loaction</h6>
+                                        </div>
+                                        <div class="worldmap-container">
+                                            <div id="map"></div>
+                                            <ul class="highlighted-location-list">
+                                                <li>
+                                                    <div class="dot-icon-group">
+                                                        <span class="dot-icon dot-red"></span>
+                                                        <span>Australia</span>
+                                                    </div>
+                                                    <p>25042 User</p>
+                                                </li>
+                                                <li>
+                                                    <div class="dot-icon-group">
+                                                        <span class="dot-icon dot-green"></span>
+                                                        <span>China</span>
+                                                    </div>
+                                                    <p>22048 User</p>
+                                                </li>
+                                                <li>
+                                                    <div class="dot-icon-group">
+                                                        <span class="dot-icon dot-lightblue"></span>
+                                                        <span>India</span>
+                                                    </div>
+                                                    <p>75112 User</p>
+                                                </li>
+                                                <li>
+                                                    <div class="dot-icon-group">
+                                                        <span class="dot-icon dot-orange"></span>
+                                                        <span>France</span>
+                                                    </div>
+                                                    <p>75956 User</p>
+                                                </li>
+                                                <li>
+                                                    <div class="dot-icon-group">
+                                                        <span class="dot-icon dot-lightblue"></span>
+                                                        <span>Brazil</span>
+                                                    </div>
+                                                    <p>25017 User</p>
+                                                </li>
+                                                <li>
+                                                    <div class="dot-icon-group">
+                                                        <span class="dot-icon dot-vilot"></span>
+                                                        <span>New York</span>
+                                                    </div>
+                                                    <p>75487 User</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+                        </section>
+                        <section>
+                            <div class="properties-overview">
+                                <div class="overview-card__header">
+                                    <p><strong>Properties Overview</strong></p>
+                                </div>
+                                <div class="table-responsive-md">
+                                    <table class="table custom-dashboard-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Order</th>
+                                                <th>NoCustomer Name</th>
+                                                <th>Property</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Type</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr> 
+                                                <td>#243654</td>
+                                                <td>Quiche Hollandaise</td>
+                                                <td>4693 White Oak Drive Kansas City, MO</td>
+                                                <td>20 Dec 2019</td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>Sold</td>
+                                                <td>
+                                                    <div class="action-group">
+                                                        <img class="action-button" src="./assets/png/edit-icon.png" alt="edit icon"/>
+                                                        <img class="action-button" src="./assets/png/delete-icon.png" alt="delete icon"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr> 
+                                                <td>#253461</td>
+                                                <td>Ingredia Nutrisha</td>
+                                                <td>2298 Jessie Street Columbus, OH</td>
+                                                <td>23 Dec 2019</td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>On Rent</td>
+                                                <td>
+                                                    <div class="action-group">
+                                                        <img class="action-button" src="./assets/png/edit-icon.png" alt="edit icon"/>
+                                                        <img class="action-button" src="./assets/png/delete-icon.png" alt="delete icon"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </main>
             </div>
         </div>
     </body>
