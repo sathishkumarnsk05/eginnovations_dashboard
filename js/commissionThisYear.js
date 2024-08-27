@@ -10,10 +10,22 @@ Highcharts.chart('commissionThisYear', {
         text: null // Remove the subtitle
     },
     xAxis: {
-        visible: false // Hide the x-axis
+        visible: false, // Hide the x-axis
+        labels: {
+            enabled: false // Ensure x-axis labels are hidden
+        },
+        title: {
+            text: null // Hide x-axis title
+        }
     },
     yAxis: {
-        visible: false // Hide the y-axis
+        visible: false, // Hide the y-axis
+        labels: {
+            enabled: false // Ensure y-axis labels are hidden
+        },
+        title: {
+            text: null // Hide y-axis title
+        }
     },
     legend: {
         enabled: false // Remove the legend
