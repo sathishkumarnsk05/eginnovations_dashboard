@@ -1245,4 +1245,40 @@ input[type="date"] {
         width: calc(50% - 10px);
     }
 }
+@media screen and (max-width: 414px) {
+    .overview-items__item {
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+    .overview-items {
+        padding: 30px 15px 30px 25px;
+    }
+    .overview-items__item__image > img {
+        width: 30px;
+    }
+    .overview-items__item__bio {
+        margin-left: 0;
+        width: 100%;
+    }
+    .overview-items__item:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    .highlighted-location-list {
+        margin-top: 10px;
+    }
+    .highlighted-location-list > li {
+        width: 100%;
+    }
+    .input-group__divider > .input-group {
+        width: 100%;
+    }
+    .checkbox-group {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .trending-item {
+        width: 100%;
+    }
+}
 /* ----- Media-query end ------ */

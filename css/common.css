@@ -540,4 +540,9 @@ color: #e5edf0;
         max-width: 9rem;
     }
 }
+@media screen and (max-width: 414px) {
+    .nav-brand {
+        display: none;
+    }
+}
 /* ----- Media-query end ------ */
