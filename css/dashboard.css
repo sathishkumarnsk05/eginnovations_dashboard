@@ -704,6 +704,11 @@
     background: url(../assets/png/input-icon-mul-urser.png) no-repeat;
     background-position: left 3px;
 }
+.input-form.pluse-icon {
+    background: url(../assets/png/input-iocn-pluse.png) no-repeat;
+    background-position: -4px 3px;
+    background-size: 20px;
+}
 .input-form:focus + .input-label,
 .input-form:not(:focus):valid ~ .input-label {
     top: -12px;
@@ -719,6 +724,10 @@ input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
+}
+input[type="date"] {
+    padding-right: 10px; /* Adjust padding as needed */
+    background-image: none; /* Ensure no background image */
 }
 /* input custom css end */
 .input-group__divider {
@@ -1224,6 +1233,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
     .properties-overview__bg-content-item {
         width: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .search-fight-btn {
+        width: 135px;
+        min-height: 40px;
+        line-height: 1.5
+    }
+    .input-group__divider > .input-group {
+        width: calc(50% - 10px);
     }
 }
 /* ----- Media-query end ------ */
