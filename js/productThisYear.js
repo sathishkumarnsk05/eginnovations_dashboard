@@ -2,7 +2,7 @@ Highcharts.chart('productionThisYear', {
     chart: {
         type: 'column',
         height: 80, // Set the desired height of the chart
-        marginTop: -30, // Margin at the top to push the chart down
+        marginTop: -50, // Margin at the top to push the chart down
         marginBottom: 0 // Margin at the bottom
     },
     title: {

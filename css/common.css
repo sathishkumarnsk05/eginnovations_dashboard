@@ -63,6 +63,9 @@ h6 {
 .m-10 {
     margin: 0.65rem !important;
 }
+.mb-0 {
+    margin-bottom: 0 !important;
+}
 .d-lh {
     line-height: 1.5 !important;
 }
